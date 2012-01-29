@@ -11,5 +11,6 @@
 @interface ABCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIViewController *rootVC;
 
 @end

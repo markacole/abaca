@@ -7,10 +7,12 @@
 //
 
 #import "ABCAppDelegate.h"
+#import "ABCRootViewController.h"
 
 @implementation ABCAppDelegate
 
 @synthesize window = _window;
+@synthesize rootVC;
 
 - (void)dealloc
 {
@@ -24,6 +26,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    ABCRootViewController *rvc = [[ABCRootViewController alloc] init];
+    self.rootVC = rvc;
+    [rvc release];
+    [self.window setRootViewController:self.rootVC];
+    
+    
     return YES;
 }
 
