@@ -7,9 +7,11 @@
 *.perspectivev3
 *.pyc
 *~.nib/
+*.xcuserstate
 build/*
 DerivedData/*
 xcuserdata
+
 
 # osx noise
 .DS_Store
