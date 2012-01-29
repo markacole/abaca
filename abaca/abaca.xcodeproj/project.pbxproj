@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93C939F214D5A8C30035EA79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F114D5A8C30035EA79 /* UIKit.framework */; };
+		93C939F414D5A8C30035EA79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F314D5A8C30035EA79 /* Foundation.framework */; };
+		93C939F614D5A8C30035EA79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F514D5A8C30035EA79 /* CoreGraphics.framework */; };
+		93C939FC14D5A8C30035EA79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93C939FA14D5A8C30035EA79 /* InfoPlist.strings */; };
+		93C939FE14D5A8C30035EA79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C939FD14D5A8C30035EA79 /* main.m */; };
+		93C93A0214D5A8C30035EA79 /* ABCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C93A0114D5A8C30035EA79 /* ABCAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93C939ED14D5A8C20035EA79 /* abaca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abaca.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C939F114D5A8C30035EA79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93C939F314D5A8C30035EA79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93C939F514D5A8C30035EA79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93C939F914D5A8C30035EA79 /* abaca-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "abaca-Info.plist"; sourceTree = "<group>"; };
+		93C939FB14D5A8C30035EA79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93C939FD14D5A8C30035EA79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93C939FF14D5A8C30035EA79 /* abaca-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "abaca-Prefix.pch"; sourceTree = "<group>"; };
+		93C93A0014D5A8C30035EA79 /* ABCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABCAppDelegate.h; sourceTree = "<group>"; };
+		93C93A0114D5A8C30035EA79 /* ABCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABCAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93C939EA14D5A8C20035EA79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C939F214D5A8C30035EA79 /* UIKit.framework in Frameworks */,
+				93C939F414D5A8C30035EA79 /* Foundation.framework in Frameworks */,
+				93C939F614D5A8C30035EA79 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93C939E214D5A8C20035EA79 = {
+			isa = PBXGroup;
+			children = (
+				93C939F714D5A8C30035EA79 /* abaca */,
+				93C939F014D5A8C20035EA79 /* Frameworks */,
+				93C939EE14D5A8C20035EA79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93C939EE14D5A8C20035EA79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93C939ED14D5A8C20035EA79 /* abaca.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93C939F014D5A8C20035EA79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93C939F114D5A8C30035EA79 /* UIKit.framework */,
+				93C939F314D5A8C30035EA79 /* Foundation.framework */,
+				93C939F514D5A8C30035EA79 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93C939F714D5A8C30035EA79 /* abaca */ = {
+			isa = PBXGroup;
+			children = (
+				93C93A0014D5A8C30035EA79 /* ABCAppDelegate.h */,
+				93C93A0114D5A8C30035EA79 /* ABCAppDelegate.m */,
+				93C939F814D5A8C30035EA79 /* Supporting Files */,
+			);
+			path = abaca;
+			sourceTree = "<group>";
+		};
+		93C939F814D5A8C30035EA79 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93C939F914D5A8C30035EA79 /* abaca-Info.plist */,
+				93C939FA14D5A8C30035EA79 /* InfoPlist.strings */,
+				93C939FD14D5A8C30035EA79 /* main.m */,
+				93C939FF14D5A8C30035EA79 /* abaca-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93C939EC14D5A8C20035EA79 /* abaca */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C93A0514D5A8C30035EA79 /* Build configuration list for PBXNativeTarget "abaca" */;
+			buildPhases = (
+				93C939E914D5A8C20035EA79 /* Sources */,
+				93C939EA14D5A8C20035EA79 /* Frameworks */,
+				93C939EB14D5A8C20035EA79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = abaca;
+			productName = abaca;
+			productReference = 93C939ED14D5A8C20035EA79 /* abaca.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93C939E414D5A8C20035EA79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SeriouslyRevival;
+			};
+			buildConfigurationList = 93C939E714D5A8C20035EA79 /* Build configuration list for PBXProject "abaca" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93C939E214D5A8C20035EA79;
+			productRefGroup = 93C939EE14D5A8C20035EA79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93C939EC14D5A8C20035EA79 /* abaca */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93C939EB14D5A8C20035EA79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C939FC14D5A8C30035EA79 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93C939E914D5A8C20035EA79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C939FE14D5A8C30035EA79 /* main.m in Sources */,
+				93C93A0214D5A8C30035EA79 /* ABCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93C939FA14D5A8C30035EA79 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C939FB14D5A8C30035EA79 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93C93A0314D5A8C30035EA79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93C93A0414D5A8C30035EA79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93C93A0614D5A8C30035EA79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "abaca/abaca-Prefix.pch";
+				INFOPLIST_FILE = "abaca/abaca-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93C93A0714D5A8C30035EA79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "abaca/abaca-Prefix.pch";
+				INFOPLIST_FILE = "abaca/abaca-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93C939E714D5A8C20035EA79 /* Build configuration list for PBXProject "abaca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C93A0314D5A8C30035EA79 /* Debug */,
+				93C93A0414D5A8C30035EA79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C93A0514D5A8C30035EA79 /* Build configuration list for PBXNativeTarget "abaca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C93A0614D5A8C30035EA79 /* Debug */,
+				93C93A0714D5A8C30035EA79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93C939E414D5A8C20035EA79 /* Project object */;
+}
