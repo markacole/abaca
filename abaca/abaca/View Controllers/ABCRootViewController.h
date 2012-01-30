@@ -7,7 +7,10 @@
 //
 
 #import "ABCHomeScreenButtonView.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface ABCRootViewController : UIViewController <ABCHomeScreenButtonViewDelegate>
+@interface ABCRootViewController : UIViewController <ABCHomeScreenButtonViewDelegate>{
+    AVAudioPlayer *audioPlayer;
+}
 
 @end

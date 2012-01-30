@@ -33,18 +33,9 @@
 
 #pragma mark - View lifecycle
 
-/*
+
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)loadView{
     UIView *vw =[[UIView alloc] initWithFrame:CGRectZero];
     self.view = vw;
     [vw release];
@@ -97,6 +88,31 @@
     
     
     [btnTitles release];
+    
+    
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/a_apple_mix_2_FINAL.mp3", [[NSBundle mainBundle] resourcePath]]];
+    
+	NSError *error = nil;
+	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+	audioPlayer.numberOfLoops = -1;
+    audioPlayer.volume = 0.05;
+}
+
+
+/*
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+*/
+
+-(void)viewDidAppear:(BOOL)animated{
+    if (audioPlayer != nil){
+        audioPlayer.currentTime = 0;
+        [audioPlayer play];
+    }
 }
 
 
@@ -134,8 +150,14 @@
             break;
     }
     if (newVC){
+        if (audioPlayer != nil)[audioPlayer stop];
         [self.navigationController pushViewController:newVC animated:YES];
     }
+}
+
+-(void)dealloc{
+    [audioPlayer release];
+    [super dealloc];
 }
 
 @end

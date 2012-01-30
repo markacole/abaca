@@ -31,18 +31,9 @@
 
 #pragma mark - View lifecycle
 
-/*
+
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)loadView{
     UIView *vw =[[UIView alloc] initWithFrame:CGRectZero];
     self.view = vw;
     [vw release];
@@ -60,6 +51,16 @@
     [self.view addSubview:homeBtn];
 }
 
+
+/*
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
+*/
+ 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
