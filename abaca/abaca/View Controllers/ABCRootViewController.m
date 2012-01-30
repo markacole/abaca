@@ -45,10 +45,12 @@
     self.view = vw;
     [vw release];
     
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 20.0)];
-    lbl.text = @"abaca";
-    [self.view addSubview:lbl];
-    [lbl release];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainBGGradient.png"]];
+    [self.view addSubview:bg];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)bg.frame = CGRectMake(0.0, 0.0, 480.0, 320.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)bg.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
+    
+    
 }
 
 
