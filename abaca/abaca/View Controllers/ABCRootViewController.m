@@ -7,6 +7,10 @@
 //
 
 #import "ABCRootViewController.h"
+#import "ABCabacaSongViewController.h"
+#import "ABCalphabetViewController.h"
+#import "ABCreadingViewController.h"
+#import "ABCyapYapSongViewController.h"
 
 @implementation ABCRootViewController
 
@@ -49,8 +53,50 @@
     [self.view addSubview:bg];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)bg.frame = CGRectMake(0.0, 0.0, 480.0, 320.0);
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)bg.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
+    [bg release];
     
     
+    NSArray *btnTitles = [[NSArray alloc] initWithObjects:
+                          @"abaca song",
+                          @"alphabet",
+                          @"reading",
+                          @"yap yap song",
+                          nil];
+    
+    
+    float btnW = 320.0;
+    float btnH = 54.0;
+    float gapH = 20.0;
+    float btnX = floorf((480.0-btnW)/2.0);
+    float btnY = floorf(  (320.0-( (btnH*[btnTitles count]) + (gapH*([btnTitles count]-1)) ))/2.0  );
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        btnW = btnW*2.0;
+        btnH = btnH*2.0;
+        gapH = gapH*2.0;
+        btnX = floorf((1024.0-btnW)/2.0);
+        btnY = floorf(  (768.0-( (btnH*[btnTitles count]) + (gapH*([btnTitles count]-1)) ))/2.0  );
+    }
+    
+    for (int i=0; i<[btnTitles count]; i++){
+        ABCHomeScreenButtonView *btn = [[ABCHomeScreenButtonView alloc] initWithFrame:CGRectMake(btnX, i*(btnH+gapH)+btnY, btnW, btnH)];
+        btn.tag = i;
+        btn.delegate = self;
+        NSString *textImageName = [NSString stringWithFormat:@"HomeScreenBtnText_%i.png",i];
+        NSString *iconImageName = [NSString stringWithFormat:@"HomeScreenBtnIcon_%i.png",i];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            textImageName = [NSString stringWithFormat:@"HomeScreenBtnText_%i@2x.png",i];
+            iconImageName = [NSString stringWithFormat:@"HomeScreenBtnIcon_%i@2x.png",i];
+        }
+        [btn setTextImage:[UIImage imageNamed:textImageName]];
+        [btn setIconImage:[UIImage imageNamed:iconImageName]];
+        
+        [self.view addSubview:btn];
+        [btn release];
+    }
+    
+    
+    [btnTitles release];
 }
 
 
@@ -66,6 +112,30 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
             interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+
+-(void)homeScreenButtonPressed:(ABCHomeScreenButtonView *)buttonView{
+    UIViewController *newVC = nil;
+    switch (buttonView.tag) {
+        case 0:
+            newVC = [[ABCabacaSongViewController alloc] init];
+            break;
+        case 1:
+            newVC = [[ABCalphabetViewController alloc] init];
+            break;
+        case 2:
+            newVC = [[ABCreadingViewController alloc] init];
+            break;
+        case 3:
+            newVC = [[ABCyapYapSongViewController alloc] init];
+            break;
+        default:
+            break;
+    }
+    if (newVC){
+        [self.navigationController pushViewController:newVC animated:YES];
+    }
 }
 
 @end

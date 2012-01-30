@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 SeriouslyRevival. All rights reserved.
 //
 
+#import "ABCHomeScreenButtonView.h"
 
-
-@interface ABCRootViewController : UIViewController
+@interface ABCRootViewController : UIViewController <ABCHomeScreenButtonViewDelegate>
 
 @end

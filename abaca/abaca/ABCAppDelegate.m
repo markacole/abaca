@@ -28,11 +28,18 @@
     [self.window makeKeyAndVisible];
     
     
+    
+    
+    
     ABCRootViewController *rvc = [[ABCRootViewController alloc] init];
     self.rootVC = rvc;
     [rvc release];
-    [self.window setRootViewController:self.rootVC];
     
+    
+    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:self.rootVC];
+    navVC.navigationBarHidden = YES;
+    [self.window setRootViewController:navVC];
+    [navVC release];
     
     return YES;
 }

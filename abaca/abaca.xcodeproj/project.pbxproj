@@ -14,6 +14,24 @@
 		93690E8C14D69AB200ED6277 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E8B14D69AB200ED6277 /* Default-Landscape~ipad.png */; };
 		93690E8E14D69B1D00ED6277 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E8D14D69B1D00ED6277 /* Default-Landscape@2x.png */; };
 		93690E9214D69BD800ED6277 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9114D69BD800ED6277 /* Default@2x.png */; };
+		93690E9514D6A7D400ED6277 /* HomeScreenButtons.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9314D6A7D400ED6277 /* HomeScreenButtons.png */; };
+		93690E9614D6A7D400ED6277 /* HomeScreenButtons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9414D6A7D400ED6277 /* HomeScreenButtons@2x.png */; };
+		93690E9914D6A81300ED6277 /* ABCHomeScreenButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690E9814D6A81300ED6277 /* ABCHomeScreenButtonView.m */; };
+		93690E9E14D6B29800ED6277 /* HomeScreenBtnText_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9A14D6B29800ED6277 /* HomeScreenBtnText_0@2x.png */; };
+		93690E9F14D6B29800ED6277 /* HomeScreenBtnText_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9B14D6B29800ED6277 /* HomeScreenBtnText_1@2x.png */; };
+		93690EA014D6B29800ED6277 /* HomeScreenBtnText_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9C14D6B29800ED6277 /* HomeScreenBtnText_2@2x.png */; };
+		93690EA114D6B29800ED6277 /* HomeScreenBtnText_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690E9D14D6B29800ED6277 /* HomeScreenBtnText_3@2x.png */; };
+		93690EA614D6B98500ED6277 /* HomeScreenBtnIcon_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EA214D6B98500ED6277 /* HomeScreenBtnIcon_0@2x.png */; };
+		93690EA714D6B98500ED6277 /* HomeScreenBtnIcon_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EA314D6B98500ED6277 /* HomeScreenBtnIcon_1@2x.png */; };
+		93690EA814D6B98500ED6277 /* HomeScreenBtnIcon_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EA414D6B98500ED6277 /* HomeScreenBtnIcon_2@2x.png */; };
+		93690EA914D6B98500ED6277 /* HomeScreenBtnIcon_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EA514D6B98500ED6277 /* HomeScreenBtnIcon_3@2x.png */; };
+		93690EAC14D6BE0600ED6277 /* HomeScreenButtons_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EAA14D6BE0600ED6277 /* HomeScreenButtons_Highlighted.png */; };
+		93690EAD14D6BE0600ED6277 /* HomeScreenButtons_Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93690EAB14D6BE0600ED6277 /* HomeScreenButtons_Highlighted@2x.png */; };
+		93690EB014D6C18C00ED6277 /* ABCabacaSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690EAF14D6C18C00ED6277 /* ABCabacaSongViewController.m */; };
+		93690EB314D6C1A200ED6277 /* ABCalphabetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690EB214D6C1A200ED6277 /* ABCalphabetViewController.m */; };
+		93690EB614D6C1BF00ED6277 /* ABCreadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690EB514D6C1BE00ED6277 /* ABCreadingViewController.m */; };
+		93690EB914D6C1DE00ED6277 /* ABCyapYapSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690EB814D6C1DD00ED6277 /* ABCyapYapSongViewController.m */; };
+		93690EBC14D6C2E100ED6277 /* ABCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93690EBB14D6C2E100ED6277 /* ABCBaseViewController.m */; };
 		93C939F214D5A8C30035EA79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F114D5A8C30035EA79 /* UIKit.framework */; };
 		93C939F414D5A8C30035EA79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F314D5A8C30035EA79 /* Foundation.framework */; };
 		93C939F614D5A8C30035EA79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F514D5A8C30035EA79 /* CoreGraphics.framework */; };
@@ -31,6 +49,30 @@
 		93690E8B14D69AB200ED6277 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		93690E8D14D69B1D00ED6277 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		93690E9114D69BD800ED6277 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		93690E9314D6A7D400ED6277 /* HomeScreenButtons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeScreenButtons.png; sourceTree = "<group>"; };
+		93690E9414D6A7D400ED6277 /* HomeScreenButtons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenButtons@2x.png"; sourceTree = "<group>"; };
+		93690E9714D6A81300ED6277 /* ABCHomeScreenButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCHomeScreenButtonView.h; sourceTree = "<group>"; };
+		93690E9814D6A81300ED6277 /* ABCHomeScreenButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCHomeScreenButtonView.m; sourceTree = "<group>"; };
+		93690E9A14D6B29800ED6277 /* HomeScreenBtnText_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnText_0@2x.png"; sourceTree = "<group>"; };
+		93690E9B14D6B29800ED6277 /* HomeScreenBtnText_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnText_1@2x.png"; sourceTree = "<group>"; };
+		93690E9C14D6B29800ED6277 /* HomeScreenBtnText_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnText_2@2x.png"; sourceTree = "<group>"; };
+		93690E9D14D6B29800ED6277 /* HomeScreenBtnText_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnText_3@2x.png"; sourceTree = "<group>"; };
+		93690EA214D6B98500ED6277 /* HomeScreenBtnIcon_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnIcon_0@2x.png"; sourceTree = "<group>"; };
+		93690EA314D6B98500ED6277 /* HomeScreenBtnIcon_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnIcon_1@2x.png"; sourceTree = "<group>"; };
+		93690EA414D6B98500ED6277 /* HomeScreenBtnIcon_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnIcon_2@2x.png"; sourceTree = "<group>"; };
+		93690EA514D6B98500ED6277 /* HomeScreenBtnIcon_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenBtnIcon_3@2x.png"; sourceTree = "<group>"; };
+		93690EAA14D6BE0600ED6277 /* HomeScreenButtons_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeScreenButtons_Highlighted.png; sourceTree = "<group>"; };
+		93690EAB14D6BE0600ED6277 /* HomeScreenButtons_Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeScreenButtons_Highlighted@2x.png"; sourceTree = "<group>"; };
+		93690EAE14D6C18C00ED6277 /* ABCabacaSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCabacaSongViewController.h; sourceTree = "<group>"; };
+		93690EAF14D6C18C00ED6277 /* ABCabacaSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCabacaSongViewController.m; sourceTree = "<group>"; };
+		93690EB114D6C1A200ED6277 /* ABCalphabetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCalphabetViewController.h; sourceTree = "<group>"; };
+		93690EB214D6C1A200ED6277 /* ABCalphabetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCalphabetViewController.m; sourceTree = "<group>"; };
+		93690EB414D6C1BE00ED6277 /* ABCreadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCreadingViewController.h; sourceTree = "<group>"; };
+		93690EB514D6C1BE00ED6277 /* ABCreadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCreadingViewController.m; sourceTree = "<group>"; };
+		93690EB714D6C1DD00ED6277 /* ABCyapYapSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCyapYapSongViewController.h; sourceTree = "<group>"; };
+		93690EB814D6C1DD00ED6277 /* ABCyapYapSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCyapYapSongViewController.m; sourceTree = "<group>"; };
+		93690EBA14D6C2E100ED6277 /* ABCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCBaseViewController.h; sourceTree = "<group>"; };
+		93690EBB14D6C2E100ED6277 /* ABCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCBaseViewController.m; sourceTree = "<group>"; };
 		93C939ED14D5A8C20035EA79 /* abaca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abaca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C939F114D5A8C30035EA79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93C939F314D5A8C30035EA79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +179,16 @@
 			children = (
 				93C93A0D14D5AA370035EA79 /* ABCRootViewController.h */,
 				93C93A0E14D5AA370035EA79 /* ABCRootViewController.m */,
+				93690EBA14D6C2E100ED6277 /* ABCBaseViewController.h */,
+				93690EBB14D6C2E100ED6277 /* ABCBaseViewController.m */,
+				93690EAE14D6C18C00ED6277 /* ABCabacaSongViewController.h */,
+				93690EAF14D6C18C00ED6277 /* ABCabacaSongViewController.m */,
+				93690EB114D6C1A200ED6277 /* ABCalphabetViewController.h */,
+				93690EB214D6C1A200ED6277 /* ABCalphabetViewController.m */,
+				93690EB414D6C1BE00ED6277 /* ABCreadingViewController.h */,
+				93690EB514D6C1BE00ED6277 /* ABCreadingViewController.m */,
+				93690EB714D6C1DD00ED6277 /* ABCyapYapSongViewController.h */,
+				93690EB814D6C1DD00ED6277 /* ABCyapYapSongViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -144,6 +196,8 @@
 		93C93A0B14D5A94F0035EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93690E9714D6A81300ED6277 /* ABCHomeScreenButtonView.h */,
+				93690E9814D6A81300ED6277 /* ABCHomeScreenButtonView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +205,18 @@
 		93C93A0C14D5A9740035EA79 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				93690EA214D6B98500ED6277 /* HomeScreenBtnIcon_0@2x.png */,
+				93690EA314D6B98500ED6277 /* HomeScreenBtnIcon_1@2x.png */,
+				93690EA414D6B98500ED6277 /* HomeScreenBtnIcon_2@2x.png */,
+				93690EA514D6B98500ED6277 /* HomeScreenBtnIcon_3@2x.png */,
+				93690E9A14D6B29800ED6277 /* HomeScreenBtnText_0@2x.png */,
+				93690E9B14D6B29800ED6277 /* HomeScreenBtnText_1@2x.png */,
+				93690E9C14D6B29800ED6277 /* HomeScreenBtnText_2@2x.png */,
+				93690E9D14D6B29800ED6277 /* HomeScreenBtnText_3@2x.png */,
+				93690E9314D6A7D400ED6277 /* HomeScreenButtons.png */,
+				93690E9414D6A7D400ED6277 /* HomeScreenButtons@2x.png */,
+				93690EAA14D6BE0600ED6277 /* HomeScreenButtons_Highlighted.png */,
+				93690EAB14D6BE0600ED6277 /* HomeScreenButtons_Highlighted@2x.png */,
 				93690E8914D6980400ED6277 /* MainBGGradient.png */,
 			);
 			path = Images;
@@ -215,6 +281,18 @@
 				93690E8C14D69AB200ED6277 /* Default-Landscape~ipad.png in Resources */,
 				93690E8E14D69B1D00ED6277 /* Default-Landscape@2x.png in Resources */,
 				93690E9214D69BD800ED6277 /* Default@2x.png in Resources */,
+				93690E9514D6A7D400ED6277 /* HomeScreenButtons.png in Resources */,
+				93690E9614D6A7D400ED6277 /* HomeScreenButtons@2x.png in Resources */,
+				93690E9E14D6B29800ED6277 /* HomeScreenBtnText_0@2x.png in Resources */,
+				93690E9F14D6B29800ED6277 /* HomeScreenBtnText_1@2x.png in Resources */,
+				93690EA014D6B29800ED6277 /* HomeScreenBtnText_2@2x.png in Resources */,
+				93690EA114D6B29800ED6277 /* HomeScreenBtnText_3@2x.png in Resources */,
+				93690EA614D6B98500ED6277 /* HomeScreenBtnIcon_0@2x.png in Resources */,
+				93690EA714D6B98500ED6277 /* HomeScreenBtnIcon_1@2x.png in Resources */,
+				93690EA814D6B98500ED6277 /* HomeScreenBtnIcon_2@2x.png in Resources */,
+				93690EA914D6B98500ED6277 /* HomeScreenBtnIcon_3@2x.png in Resources */,
+				93690EAC14D6BE0600ED6277 /* HomeScreenButtons_Highlighted.png in Resources */,
+				93690EAD14D6BE0600ED6277 /* HomeScreenButtons_Highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +306,12 @@
 				93C939FE14D5A8C30035EA79 /* main.m in Sources */,
 				93C93A0214D5A8C30035EA79 /* ABCAppDelegate.m in Sources */,
 				93C93A0F14D5AA370035EA79 /* ABCRootViewController.m in Sources */,
+				93690E9914D6A81300ED6277 /* ABCHomeScreenButtonView.m in Sources */,
+				93690EB014D6C18C00ED6277 /* ABCabacaSongViewController.m in Sources */,
+				93690EB314D6C1A200ED6277 /* ABCalphabetViewController.m in Sources */,
+				93690EB614D6C1BF00ED6277 /* ABCreadingViewController.m in Sources */,
+				93690EB914D6C1DE00ED6277 /* ABCyapYapSongViewController.m in Sources */,
+				93690EBC14D6C2E100ED6277 /* ABCBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
