@@ -45,8 +45,11 @@
     [bg release];
     
     
-    homeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    homeBtn.frame = CGRectMake(10.0, 10.0, 44.0, 44.0);
+    homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)homeBtn.frame = CGRectMake(10.0, 0.0, 54.0, 54.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)homeBtn.frame = CGRectMake(10.0, 0.0, 108.0, 108.0);
+    [homeBtn setImage:[UIImage imageNamed:@"HomeButton.png"] forState:UIControlStateNormal];
+    [homeBtn setImage:[UIImage imageNamed:@"HomeButton_Highlighted.png"] forState:UIControlStateHighlighted];
     [homeBtn addTarget:self action:@selector(homeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:homeBtn];
 }

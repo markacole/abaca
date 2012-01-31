@@ -90,6 +90,14 @@
     [btnTitles release];
     
     
+    muteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)muteButton.frame = CGRectMake(10.0, 0.0, 54.0, 54.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)muteButton.frame = CGRectMake(10.0, 0.0, 108.0, 108.0);
+    [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted.png"] forState:UIControlStateNormal];
+    [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted_Highlighted.png"] forState:UIControlStateHighlighted];
+    [muteButton addTarget:self action:@selector(muteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:muteButton];
+    
     
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/a_apple_mix_2_FINAL.mp3", [[NSBundle mainBundle] resourcePath]]];
     
@@ -97,6 +105,7 @@
 	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
 	audioPlayer.numberOfLoops = -1;
     audioPlayer.volume = 0.05;
+    [audioPlayer prepareToPlay];
 }
 
 
@@ -152,6 +161,18 @@
     if (newVC){
         if (audioPlayer != nil)[audioPlayer stop];
         [self.navigationController pushViewController:newVC animated:YES];
+    }
+}
+
+-(void)muteButtonPressed:(id)sender{
+    if (audioPlayer.volume > 0.0) {
+        audioPlayer.volume = 0.0;
+        [muteButton setImage:[UIImage imageNamed:@"MuteButton.png"] forState:UIControlStateNormal];
+        [muteButton setImage:[UIImage imageNamed:@"MuteButton_Highlighted.png"] forState:UIControlStateHighlighted];
+    }else{
+        audioPlayer.volume = 0.05;
+        [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted.png"] forState:UIControlStateNormal];
+        [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted_Highlighted.png"] forState:UIControlStateHighlighted];
     }
 }
 

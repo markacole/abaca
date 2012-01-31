@@ -8,6 +8,14 @@
 
 #import "ABCBaseViewController.h"
 
+typedef enum{
+    ABCalphabetViewModeNormal,
+    ABCalphabetViewModePlay,
+    ABCalphabetViewModeEye
+}ABCalphabetViewMode;
+
 @interface ABCalphabetViewController : ABCBaseViewController
+
+@property (nonatomic) ABCalphabetViewMode viewMode;
 
 @end

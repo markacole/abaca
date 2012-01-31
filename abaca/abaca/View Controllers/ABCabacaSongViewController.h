@@ -7,7 +7,28 @@
 //
 
 #import "ABCBaseViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "ABCabacaSong.h"
+#import "ABCabacaSongView.h"
 
-@interface ABCabacaSongViewController : ABCBaseViewController
+@interface ABCabacaSongViewController : ABCBaseViewController<AVAudioPlayerDelegate>{
+    ABCabacaSong *song;
+    AVAudioPlayer *audioPlayer;
+    
+    UIButton *pauseBtn;
+    
+    NSMutableArray *alphaViews;
+    
+    NSInteger currentPage;
+    
+    UIView *songViewContainer;
+    
+    NSArray *alphabet;
+    NSArray *times;
+    
+    BOOL musicEnded;
+}
+
+@property (nonatomic,retain) NSTimer *songProgressTimer;
 
 @end
