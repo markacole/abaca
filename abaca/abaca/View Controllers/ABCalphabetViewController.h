@@ -7,6 +7,10 @@
 //
 
 #import "ABCBaseViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "ABCalphabetView_iPhone.h"
+#import "ABCalphabetView_iPad.h"
+
 
 typedef enum{
     ABCalphabetViewModeNormal,
@@ -14,8 +18,14 @@ typedef enum{
     ABCalphabetViewModeEye
 }ABCalphabetViewMode;
 
-@interface ABCalphabetViewController : ABCBaseViewController
+@interface ABCalphabetViewController : ABCBaseViewController <ABCalphabetViewDelegate,AVAudioPlayerDelegate>{
+    NSInteger playModeCurrentIndex;
+}
 
 @property (nonatomic) ABCalphabetViewMode viewMode;
+@property (nonatomic, retain) ABCalphabetView *alphabetView;
+@property (nonatomic, retain) AVAudioPlayer *player;
+@property (nonatomic, retain) NSArray *playModeLettersOrder;
+@property (nonatomic, retain) NSTimer *playModeGapTimer;
 
 @end

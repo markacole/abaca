@@ -26,6 +26,8 @@
 
 
 @synthesize songProgressTimer;
+@synthesize previous;
+@synthesize next;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,40 +45,12 @@
         audioPlayer.numberOfLoops = 0;
         audioPlayer.volume = 1.0;
         audioPlayer.delegate = self;
+        audioPlayer.enableRate = YES;
         [audioPlayer prepareToPlay];
         
-        alphaViews = [[NSMutableArray alloc] initWithCapacity:2];
         
         currentPage = 0;
         
-        /*
-         a - 4
-         b - 7.5
-         c - 11
-         d - 15
-         e - 22
-         f - 25.5
-         g - 29
-         h - 32.5
-         i - 39.5
-         j - 43
-         k - 47
-         l - 50.3
-         m - 57.5
-         n - 61
-         o - 65
-         p - 68
-         q - 75
-         r - 78.8
-         s - 82.5
-         t - 86
-         u - 93
-         v - 96.5
-         w - 100
-         x - 103.5
-         y - 110.5
-         z - 114
-         */
         times = [[NSArray alloc] initWithObjects:
                  [NSNumber numberWithFloat:0.0],//a
                  [NSNumber numberWithFloat:7.5],//b
@@ -169,6 +143,15 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)songViewContainer.frame = CGRectMake(0.0, 0.0, 480.0, 320.0);
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)songViewContainer.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
     [self.view insertSubview:songViewContainer atIndex:1];
+    
+    speedControlMinus = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    speedControlPlus = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    speedControlMinus.frame = CGRectMake(900.0, 700.0, 44.0, 44.0);
+    speedControlPlus.frame = CGRectMake(950.0, 700.0, 44.0, 44.0);
+    [speedControlMinus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
+    [speedControlPlus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:speedControlMinus];
+    [self.view addSubview:speedControlPlus];
 }
 
 
@@ -212,6 +195,7 @@
 }
 
 -(void)pauseButtonPressed:(id)sender{
+    
     if (audioPlayer.isPlaying){
         [audioPlayer pause];
         [pauseBtn setImage:[UIImage imageNamed:@"PlayButton.png"] forState:UIControlStateNormal];
@@ -223,48 +207,81 @@
         [pauseBtn setImage:[UIImage imageNamed:@"PauseButton_Highlighted.png"] forState:UIControlStateHighlighted];
         [self startTimer];
     }
+    
+    
+}
+
+-(void)changeSpeed:(id)sender{
+    UIButton *btn = (UIButton *)sender;
+    if (btn == speedControlMinus){
+        if (audioPlayer.rate > 0.5){
+            audioPlayer.rate = audioPlayer.rate / 1.5;
+        }
+    }else if (btn == speedControlPlus){
+        if (audioPlayer.rate < 2.0){
+            audioPlayer.rate = audioPlayer.rate * 1.5;
+        }
+    }
 }
 
 
 -(void)showNext{
     
-    ABCabacaSongView *previous = nil;
-    if ([alphaViews count] > 0) previous = (ABCabacaSongView *)[alphaViews objectAtIndex:0];
     
-    ABCabacaSongView *next = nil;
-    if (currentPage < 26){
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) next = [[ABCabacaSongView alloc] initWithFrame:CGRectMake(0.0, 0.0, 480.0, 320.0)];
-        else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) next = [[ABCabacaSongView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 768.0)];
-    }
+    ABCabacaSongView *nxt = nil;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) nxt = [[ABCabacaSongView alloc] initWithFrame:CGRectMake(0.0, 0.0, 480.0, 320.0)];
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) nxt = [[ABCabacaSongView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 768.0)];
+    
     //move previous to the left and remove; fade in next
-    if (next){
+    if (nxt){
+        self.next = nxt;
+        [nxt release];
+        
+        
         if (currentPage < [alphabet count]) {
-            next.letter = [alphabet objectAtIndex:currentPage];
-            next.alpha = 0.0;
-            [alphaViews addObject:next];
-            [songViewContainer addSubview:next];
+            self.next.letter = [alphabet objectAtIndex:currentPage];
+            self.next.alpha = 0.0;
+            [songViewContainer addSubview:self.next];
         }else{
             [self endTimer];
         }
         currentPage++;
-        [next release];
+        
     }
     
-    [UIView animateWithDuration:0.6 animations:^(void){
-        if (previous){
-            float w = previous.frame.size.width;
-            CGRect rect = previous.frame;
-            rect.origin.x -= w;
-            previous.frame = rect;
-        }
-        if (next) {
-            next.alpha = 1.0;
-        }
-    } completion:^(BOOL finished){
-        if (previous) {
-            [alphaViews removeObject:previous];
-        }
-    }];
+    float rate = 0.3/audioPlayer.rate;
+    
+    if (self.previous) {
+        [UIView animateWithDuration:rate 
+                         animations:^(void){
+                             float w = self.previous.frame.size.width;
+                             CGRect rect = self.previous.frame;
+                             rect.origin.x -= w;
+                             self.previous.frame = rect;
+        } 
+                         completion:^(BOOL finished){
+                             [self.previous removeFromSuperview];
+                             self.previous = self.next;
+                             [UIView animateWithDuration:rate 
+                                              animations:^(void){
+                                                  self.next.alpha = 1.0;
+                                              } 
+                                              completion:^(BOOL finished){
+                                                  self.next = nil;
+                                              }];
+        }];
+    }else{
+        [UIView animateWithDuration:rate 
+                         animations:^(void){
+                             self.previous = self.next;
+                             self.previous.alpha = 1.0;
+                         } 
+                         completion:^(BOOL finished){
+                             self.next = nil;
+                         }];
+    }
+    
     
 }
 
@@ -286,21 +303,28 @@
 -(void)checkProgress{
     float current = audioPlayer.currentTime;
     if (currentPage < [times count]) {
-        if (current > [[times objectAtIndex:currentPage] floatValue]){
+        if (current >= [[times objectAtIndex:currentPage] floatValue]){
             [self showNext];
         }
     }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    
+    musicEnded = YES;
+    [self endTimer];
+    currentPage = 0;
+    audioPlayer.currentTime = 0.00;
+    [pauseBtn setImage:[UIImage imageNamed:@"PlayButton.png"] forState:UIControlStateNormal];
+    [pauseBtn setImage:[UIImage imageNamed:@"PlayButton_Highlighted.png"] forState:UIControlStateHighlighted];
+    [self checkProgress];
 }
 
 
 -(void)dealloc{
     [songViewContainer  release];
-    [alphaViews release];
     [audioPlayer release];
+    self.previous = nil;
+    self.next = nil;
     //[song release];
     [super dealloc];
 }

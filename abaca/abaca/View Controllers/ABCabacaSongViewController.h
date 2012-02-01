@@ -17,7 +17,6 @@
     
     UIButton *pauseBtn;
     
-    NSMutableArray *alphaViews;
     
     NSInteger currentPage;
     
@@ -26,9 +25,14 @@
     NSArray *alphabet;
     NSArray *times;
     
+    UIButton *speedControlMinus;
+    UIButton *speedControlPlus;
+    
     BOOL musicEnded;
 }
 
 @property (nonatomic,retain) NSTimer *songProgressTimer;
+@property (nonatomic,retain) ABCabacaSongView *previous;
+@property (nonatomic,retain) ABCabacaSongView *next;
 
 @end
