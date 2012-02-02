@@ -92,7 +92,7 @@
 
 -(void)alphabetButtonBeganPress:(ABCalphabetButtonView *)alphabetButton{
     self.currentButton = alphabetButton;
-    self.userInteractionEnabled = NO;
+    [self disableAlphaButtons];
 }
 
 -(void)alphabetButtonFinishedPress:(ABCalphabetButtonView *)alphabetButton{
@@ -104,8 +104,11 @@
 
 
 -(void)alphabetButtonClosed:(ABCalphabetButtonView *)alphabetButton{
-    self.currentButton = nil;
-    self.userInteractionEnabled = YES;
+    if (self.currentButton == alphabetButton) {
+        self.currentButton = nil;
+        [self enableAlphaButtons];
+    }
+    
 }
 
 -(void)setCurrentButton:(ABCalphabetButtonView *)currentButton{
@@ -129,6 +132,19 @@
         }
     }
     return retVal;
+}
+
+
+-(void)disableAlphaButtons{
+    for (ABCalphabetButtonView *vw in alphabetButtonViews) {
+        vw.userInteractionEnabled = NO;
+    }
+}
+
+-(void)enableAlphaButtons{
+    for (ABCalphabetButtonView *vw in alphabetButtonViews) {
+        vw.userInteractionEnabled = YES;
+    }
 }
 
 -(void)dealloc{

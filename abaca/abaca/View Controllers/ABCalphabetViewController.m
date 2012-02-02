@@ -120,9 +120,14 @@
 -(BOOL)pausePlayButtonPressedReturnIsPlaying{
     BOOL retVal = NO;
     if (self.viewMode == ABCalphabetViewModePlay){
-        [self stopSound];
-        [self stopTimer];
+        if (self.alphabetView.currentButton){
+            [self.alphabetView.currentButton reset];
+        }
+        [self startNormalMode];
     }else{
+        if (self.alphabetView.currentButton){
+            [self.alphabetView.currentButton reset];
+        }
         [self startPlayMode];
         retVal = YES;
     }
@@ -140,6 +145,10 @@
 
 
 -(void)startPlayMode{
+    if (self.alphabetView.currentButton){
+        [self.alphabetView.currentButton reset];
+    }
+    
     self.viewMode = ABCalphabetViewModePlay;
     
     //make an array of all 26 letters in random order:
@@ -182,7 +191,7 @@
 }
 
 -(void)startNormalMode{
-    self.viewMode =ABCalphabetViewModeNormal;
+    self.viewMode = ABCalphabetViewModeNormal;
     [self stopSound];
     [self stopTimer];
 }
@@ -192,7 +201,7 @@
 
 
 -(void)playSoundForLetter:(NSString *)letter{
-    self.alphabetView.userInteractionEnabled = NO;
+    [self.alphabetView disableAlphaButtons];
     
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/sb_%@.mp3", [[NSBundle mainBundle] resourcePath],letter]];
     
@@ -236,7 +245,7 @@
 
 
 -(void)stopSound{
-    self.alphabetView.userInteractionEnabled = YES;
+    [self.alphabetView enableAlphaButtons];
     if (self.player) {
         if (self.player.isPlaying) {
             [self.player stop];
@@ -264,7 +273,7 @@
     if (alphabetView.currentButton != nil){
         [alphabetView.currentButton reset];
     }
-    self.alphabetView.userInteractionEnabled = YES;
+    [self.alphabetView enableAlphaButtons];
     if (self.viewMode == ABCalphabetViewModeNormal) {
         self.player = nil;
     }else if (self.viewMode == ABCalphabetViewModePlay) {

@@ -35,6 +35,8 @@
 -(void)findButtonPressed:(id)sender;
 -(void)playCancelled;
 -(ABCalphabetButtonView *)getButtonWithLetter:(NSString *)letter;
+-(void)disableAlphaButtons;
+-(void)enableAlphaButtons;
 
 @end
 
