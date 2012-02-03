@@ -287,7 +287,7 @@
 
 -(void)startTimer{
     [self endTimer];
-    self.songProgressTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkProgress) userInfo:nil repeats:YES];
+    self.songProgressTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkProgress) userInfo:nil repeats:YES];
 }
 
 -(void)endTimer{
