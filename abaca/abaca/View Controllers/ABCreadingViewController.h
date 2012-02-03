@@ -7,7 +7,13 @@
 //
 
 #import "ABCBaseViewController.h"
+#import "ABCReadingWordsView.h"
+#import "ABCReadingImageView.h"
 
-@interface ABCreadingViewController : ABCBaseViewController
+@interface ABCreadingViewController : ABCBaseViewController<ABCReadingWordsViewDelegate>{
+    ABCReadingImageView *mainImageView;
+    ABCReadingWordsView *wordsView;
+    
+}
 
 @end
