@@ -220,6 +220,7 @@
     for (int i=0; i < [wordList count]; i++){
         NSDictionary *thisWord = [wordList objectAtIndex:i];
         float wordXcenter = [[thisWord objectForKey:@"pos"] floatValue];
+        if (!isiPad) wordXcenter = wordXcenter/2.0;
         float difference = fabsf(xPos-wordXcenter);
         if (difference < currentClosestDiff) {
             if (difference < 120.0) {
@@ -463,7 +464,7 @@
         Xpos = [[thisWord objectForKey:@"pos"] floatValue];
     }
     
-    if (!isiPad) Xpos = Xpos/2.0;
+    //if (!isiPad) Xpos = Xpos/2.0;
     
     [self moveHandToPosition:Xpos animated:NO];
     

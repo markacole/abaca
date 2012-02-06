@@ -68,6 +68,7 @@
                 //for image 0 there are two sounds. If user touched on/near mouse, the mouse sound plays, else the cat sound plays.
                 CGPoint locationInView = [touch locationInView:[touch view]];
                 CGRect mouseLocation = CGRectMake(300.0, 44.0, 150.0, 130.0);
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) mouseLocation = CGRectMake(150.0, 22.0, 75.0, 65.0);
                 if (locationInView.x > mouseLocation.origin.x &&
                     locationInView.x < (mouseLocation.origin.x+mouseLocation.size.width) &&
                     locationInView.y > mouseLocation.origin.y &&

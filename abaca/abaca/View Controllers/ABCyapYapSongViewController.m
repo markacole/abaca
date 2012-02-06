@@ -37,10 +37,11 @@
         
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"YapYapPointerList" ofType:@"plist"];
         pointerList = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-
         
+        CGRect screenFr = [[UIScreen mainScreen] bounds];
+        if (screenFr.size.width == 768.0 || screenFr.size.width == 1024.0) isiPad = YES;
+        else isiPad = NO;
         
-        isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
         // Custom initialization
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/yap_yap_with_woof mark.mp3", [[NSBundle mainBundle] resourcePath]]];
         
@@ -89,13 +90,26 @@
     [self.view addSubview:hand];
     hand.alpha = 0.0;
     
-    line1 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 140.0, 1024.0, 100.0)];
+    float w = 1024;
+    float h = 100.0;
+    scale = 1.0;
+    if (!isiPad){
+        scale = 480/w;
+        w = 480;
+        h = floorf(h*scale);
+    }
+    
+    
+    if (isiPad) line1 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 140.0, w, h)];
+    else line1 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 70.0, w, h)];
     [self.view addSubview:line1];
     
-    line2 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 240.0, 1024.0, 100.0)];
+    if (isiPad) line2 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 240.0, w, h)];
+    else line2 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 70.0+h, w, h)];
     [self.view addSubview:line2];
     
-    line3 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 340.0, 1024.0, 100.0)];
+    if (isiPad) line3 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 340.0, w, h)];
+    else line3 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 70.0+h+h, w, h)];
     [self.view addSubview:line3];
 }
 
@@ -322,8 +336,7 @@
             NSDictionary *word = (NSDictionary *)[words objectAtIndex:0];
             float wordX = [[word objectForKey:@"Pos"] floatValue];
             if (!isiPad){
-                wordX = wordX/2.0;
-                handY = handY/2.0;
+                wordX = wordX*scale;
             }
             
             
@@ -370,7 +383,7 @@
     
     
     if (!isiPad){
-        xPos = xPos/2.0;
+        xPos = xPos*scale;
     }
     
     __block CGRect rect = hand.frame;

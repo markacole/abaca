@@ -38,12 +38,16 @@
 -(void)disableAlphaButtons;
 -(void)enableAlphaButtons;
 
+-(void)setLetterForFind:(NSString *)letter;
+-(void)endFind;
+
 @end
 
 
 @protocol ABCalphabetViewDelegate <NSObject>
 
 @optional
+-(void)alphabetLetterButtonWasPressedInFindMode:(ABCalphabetButtonView *)alphabetButtonView correct:(BOOL)correct;
 -(void)alphabetLetterButtonPressedWithLetter:(NSString *)letter;
 -(void)homeButtonPressed;
 -(BOOL)pausePlayButtonPressedReturnIsPlaying;

@@ -20,6 +20,14 @@ typedef enum{
 
 @interface ABCalphabetViewController : ABCBaseViewController <ABCalphabetViewDelegate,AVAudioPlayerDelegate>{
     NSInteger playModeCurrentIndex;
+    
+    NSArray *sexForFindArray;
+    
+    NSString *findLetter;
+    BOOL playedFind;
+    BOOL playedFindLetter;
+    BOOL playedFindFanfare;
+    NSInteger findGuessCount;
 }
 
 @property (nonatomic) ABCalphabetViewMode viewMode;
@@ -27,5 +35,6 @@ typedef enum{
 @property (nonatomic, retain) AVAudioPlayer *player;
 @property (nonatomic, retain) NSArray *playModeLettersOrder;
 @property (nonatomic, retain) NSTimer *playModeGapTimer;
+@property (nonatomic, retain) NSString *findLetter;
 
 @end

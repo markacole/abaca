@@ -14,6 +14,8 @@
 
 -(void)playSoundForLetter:(NSString *)letter;
 -(void)playFindForLetter:(NSString *)letter;
+-(void)playFindLetterForLetter:(NSString *)letter;
+-(void)playFanfare;
 -(void)pickRandomLetterForFind;
 -(void)startPlayMode;
 -(void)startFindMode;
@@ -33,6 +35,7 @@
 @synthesize player;
 @synthesize playModeLettersOrder;
 @synthesize playModeGapTimer;
+@synthesize findLetter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +44,34 @@
         // Custom initialization
         self.viewMode = ABCalphabetViewModeNormal;
         
-        
+        sexForFindArray = [[NSArray alloc] initWithObjects:
+                           @"m",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"f",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"m",
+                           @"f",
+                           @"m",
+                           @"m",
+                           @"m",
+                           nil];
     }
     return self;
 }
@@ -112,6 +142,25 @@
     
 }
 
+
+-(void)alphabetLetterButtonWasPressedInFindMode:(ABCalphabetButtonView *)alphabetButtonView correct:(BOOL)correct{
+    if (correct) {
+        [alphabetButtonView highlight];
+        [self.alphabetView disableAlphaButtons];
+        [self playFanfare];
+    }else{
+        findGuessCount++;
+        if (findGuessCount > 2) {
+            playedFind = NO;
+            playedFindLetter = NO;
+            playedFindFanfare = NO;
+            findGuessCount = 0;
+            [self playFindForLetter:self.findLetter];
+        }
+    }
+}
+
+
 -(void)homeButtonPressed{
     [self stopSound];
     [super homeButtonPressed:nil];
@@ -135,7 +184,13 @@
 }
 
 -(void)findButtonPressed{
-    [self startFindMode];
+    if (self.viewMode != ABCalphabetViewModeEye) {
+        if (self.alphabetView.currentButton){
+            [self.alphabetView.currentButton reset];
+        }
+        [self startFindMode];
+    }
+    
 }
 
 
@@ -148,6 +203,15 @@
     if (self.alphabetView.currentButton){
         [self.alphabetView.currentButton reset];
     }
+    
+    if (self.viewMode == ABCalphabetViewModeEye) {
+        [self.alphabetView endFind];
+        [self stopSound];
+        [self stopTimer];
+        ABCalphabetButtonView *buttonVw = [self.alphabetView getButtonWithLetter:self.findLetter];
+        [buttonVw reset];
+    }
+    
     
     self.viewMode = ABCalphabetViewModePlay;
     
@@ -188,9 +252,15 @@
 
 -(void)startFindMode{
     self.viewMode = ABCalphabetViewModeEye;
+    playedFind = NO;
+    playedFindLetter = NO;
+    playedFindFanfare = NO;
+    findGuessCount = 0;
+    [self pickRandomLetterForFind];
 }
 
 -(void)startNormalMode{
+    [self.alphabetView endFind];
     self.viewMode = ABCalphabetViewModeNormal;
     [self stopSound];
     [self stopTimer];
@@ -212,7 +282,6 @@
     self.player.numberOfLoops = 0;
     self.player.volume = 1.0;
     self.player.delegate = self;
-    self.player.enableRate = YES;
     [self.player play];
     
     if (self.viewMode == ABCalphabetViewModePlay) {
@@ -222,9 +291,52 @@
 }
 
 -(void)playFindForLetter:(NSString *)letter{
+    [self.alphabetView disableAlphaButtons];
+    
+    NSArray *alphabet = [NSArray arrayWithObjects:
+                         @"a",
+                         @"b",
+                         @"c",
+                         @"d",
+                         @"e",
+                         @"f",
+                         @"g",
+                         @"h",
+                         @"i",
+                         @"j",
+                         @"k",
+                         @"l",
+                         @"m",
+                         @"n",
+                         @"o",
+                         @"p",
+                         @"q",
+                         @"r",
+                         @"s",
+                         @"t",
+                         @"u",
+                         @"v",
+                         @"w",
+                         @"x",
+                         @"y",
+                         @"z",
+                         nil];
+    
+    NSInteger indexOfLetter = 0;
+    for (int i=0; i < [alphabet count]; i++){
+        if ([[alphabet objectAtIndex:i] isEqualToString:letter]){
+            indexOfLetter = i;
+            break;
+        }
+    }
+    
+    NSString *sex = [sexForFindArray objectAtIndex:indexOfLetter];
     
     
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/sb_%@.mp3", [[NSBundle mainBundle] resourcePath],letter]];
+    //pick a random number between 1 and 4
+    NSUInteger randomNumber = (arc4random()%(4));
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/find_%@_%i.mp3", [[NSBundle mainBundle] resourcePath],sex,randomNumber]];
     
     NSError *error = nil;
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
@@ -233,12 +345,69 @@
     self.player.numberOfLoops = 0;
     self.player.volume = 1.0;
     self.player.delegate = self;
-    self.player.enableRate = YES;
+    [self.player play];
+}
+
+-(void)playFindLetterForLetter:(NSString *)letter{
+    
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/find_%@.mp3", [[NSBundle mainBundle] resourcePath],letter]];
+    
+    NSError *error = nil;
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.player = audioPlayer;
+    [audioPlayer release];
+    self.player.numberOfLoops = 0;
+    self.player.volume = 1.0;
+    self.player.delegate = self;
+    [self.player play];
+}
+
+-(void)playFanfare{
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/find_fanfare.wav", [[NSBundle mainBundle] resourcePath]]];
+    
+    NSError *error = nil;
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.player = audioPlayer;
+    [audioPlayer release];
+    self.player.numberOfLoops = 0;
+    self.player.volume = 1.0;
+    self.player.delegate = self;
     [self.player play];
 }
 
 -(void)pickRandomLetterForFind{
-    
+    NSArray *alphabet = [NSArray arrayWithObjects:
+                         @"a",
+                         @"b",
+                         @"c",
+                         @"d",
+                         @"e",
+                         @"f",
+                         @"g",
+                         @"h",
+                         @"i",
+                         @"j",
+                         @"k",
+                         @"l",
+                         @"m",
+                         @"n",
+                         @"o",
+                         @"p",
+                         @"q",
+                         @"r",
+                         @"s",
+                         @"t",
+                         @"u",
+                         @"v",
+                         @"w",
+                         @"x",
+                         @"y",
+                         @"z",
+                         nil];
+    self.findLetter = [[alphabet shuffled] objectAtIndex:13];
+    [self.alphabetView setLetterForFind:self.findLetter];
+    [self playFindForLetter:self.findLetter];
 }
 
 
@@ -273,13 +442,36 @@
     if (alphabetView.currentButton != nil){
         [alphabetView.currentButton reset];
     }
-    [self.alphabetView enableAlphaButtons];
-    if (self.viewMode == ABCalphabetViewModeNormal) {
-        self.player = nil;
-    }else if (self.viewMode == ABCalphabetViewModePlay) {
-        self.player = nil;
-        playModeCurrentIndex++;
-        self.playModeGapTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+    if (self.viewMode != ABCalphabetViewModeEye){
+        [self.alphabetView enableAlphaButtons];
+        if (self.viewMode == ABCalphabetViewModeNormal) {
+            self.player = nil;
+        }else if (self.viewMode == ABCalphabetViewModePlay) {
+            self.player = nil;
+            playModeCurrentIndex++;
+            self.playModeGapTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+        }
+    }else{
+        if (!playedFind) {
+            playedFind = YES;
+            [self playFindLetterForLetter:self.findLetter];
+        }else if (!playedFindLetter){
+            playedFindLetter = YES;
+            [self.alphabetView enableAlphaButtons];
+        }else if (!playedFindFanfare){
+            playedFindFanfare = YES;
+            //play correct button:
+            ABCalphabetButtonView *buttonVw = [self.alphabetView getButtonWithLetter:self.findLetter];
+            [buttonVw highlight];
+            [self playSoundForLetter:self.findLetter];
+        }else{
+            //reset
+            ABCalphabetButtonView *buttonVw = [self.alphabetView getButtonWithLetter:self.findLetter];
+            [buttonVw reset];
+            [self.alphabetView endFind];
+            [self.alphabetView enableAlphaButtons];
+            self.viewMode = ABCalphabetViewModeNormal;
+        }
     }
 }
 
@@ -287,6 +479,10 @@
 -(void)dealloc{
     self.player = nil;
     self.alphabetView = nil;
+    self.playModeLettersOrder = nil;
+    self.playModeGapTimer = nil;
+    self.findLetter = nil;
+    [sexForFindArray release];
     [super dealloc];
 }
 

@@ -81,7 +81,9 @@
 }
 
 -(void)findButtonPressed:(id)sender{
-    
+    if ([self.delegate respondsToSelector:@selector(findButtonPressed)]) {
+        [self.delegate findButtonPressed];
+    }
 }
 
 -(void)playCancelled{
@@ -110,6 +112,15 @@
     }
     
 }
+
+
+-(void)alphabetButton:(ABCalphabetButtonView *)alhabetButton wasCorrectSelectionForFind:(BOOL)correctSelectionForFind{
+    if ([self.delegate respondsToSelector:@selector(alphabetLetterButtonWasPressedInFindMode:correct:)]){
+        [self.delegate alphabetLetterButtonWasPressedInFindMode:alhabetButton correct:correctSelectionForFind];
+    }
+}
+
+
 
 -(void)setCurrentButton:(ABCalphabetButtonView *)currentButton{
     _currentButton = currentButton;
@@ -146,6 +157,27 @@
         vw.userInteractionEnabled = YES;
     }
 }
+
+-(void)setLetterForFind:(NSString *)letter{
+    for (ABCalphabetButtonView *vw in alphabetButtonViews) {
+        if ([vw.letter isEqualToString:letter]){
+            vw.isLetterForFind = YES;
+        }else{
+            vw.isLetterForFind = NO;
+        }
+        vw.isInFindMode = YES;
+    }
+}
+
+
+-(void)endFind{
+    for (ABCalphabetButtonView *vw in alphabetButtonViews) {
+        vw.isLetterForFind = NO;
+        vw.isInFindMode = NO;
+    }
+}
+
+
 
 -(void)dealloc{
     [alphabetButtonViews release];

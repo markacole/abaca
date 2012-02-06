@@ -25,6 +25,8 @@
     BOOL isiPad;
     
     NSDictionary *pointerList;
+    
+    float scale;
 }
 
 @property (nonatomic, retain) AVAudioPlayer *player;

@@ -13,12 +13,16 @@
 @dynamic letter;
 @synthesize button;
 @synthesize delegate;
+@synthesize isLetterForFind;
+@synthesize isInFindMode;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.isLetterForFind = NO;
+        self.isInFindMode = NO;
         
         letterImg = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
         [self addSubview:letterImg];
@@ -53,10 +57,21 @@
 
 
 -(void)buttonPressed:(id)sender{
-    buttonPressedByUser = YES;
-    if ([self.delegate respondsToSelector:@selector(alphabetButtonBeganPress:)]) {
-        [self.delegate alphabetButtonBeganPress:self];
+    if (isInFindMode) {
+        if (!isLetterForFind) {
+            [self showWrong];
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(alphabetButton:wasCorrectSelectionForFind:)]){
+            [self.delegate alphabetButton:self wasCorrectSelectionForFind:isLetterForFind];
+        }
+    }else{
+        buttonPressedByUser = YES;
+        if ([self.delegate respondsToSelector:@selector(alphabetButtonBeganPress:)]) {
+            [self.delegate alphabetButtonBeganPress:self];
+        }
     }
+    
 }
 
 -(void)highlight{
@@ -84,6 +99,27 @@
     }];
 }
 
+
+-(void)showWrong{
+    CGRect rect = CGRectZero;
+    rect.size.width = floorf(self.frame.size.width/1.1);
+    rect.size.height = floorf(self.frame.size.height/1.1);
+    rect.origin.x = floorf((self.frame.size.width-rect.size.width)/2.0);
+    rect.origin.y = floorf((self.frame.size.height-rect.size.height)/2.0);
+    
+    if (!buttonPressedByUser) {
+        if ([self.delegate respondsToSelector:@selector(alphabetButtonBeganHighlightWithoutPress:)]) {
+            [self.delegate alphabetButtonBeganHighlightWithoutPress:self];
+        }
+    }
+    
+    [UIView animateWithDuration:0.2 animations:^(void){
+        letterImg.frame = rect;
+    } completion:^(BOOL finished){
+        [self reset];
+    }];
+}
+
 -(void)reset{
     buttonPressedByUser = NO;
     CGRect rect = CGRectZero;
@@ -91,7 +127,11 @@
     rect.size.height = self.frame.size.height;
     rect.origin.x = 0.0;
     rect.origin.y = 0.0;
-    [UIView animateWithDuration:0.4 animations:^(void){
+    
+    float animDur = 0.4;
+    if (isInFindMode) animDur = 0.2;
+    
+    [UIView animateWithDuration:animDur animations:^(void){
         letterImg.frame = rect;
     } completion:^(BOOL finished){
         if ([self.delegate respondsToSelector:@selector(alphabetButtonClosed:)]) {
