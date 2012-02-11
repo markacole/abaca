@@ -49,7 +49,7 @@
         isiPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad); 
         
         words = [[UIImageView alloc] initWithFrame:CGRectZero];
-        words.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
+        words.backgroundColor = [UIColor clearColor];
         if (isiPad) words.frame = CGRectMake(0.0, 0.0, self.frame.size.width, 70.0);
         else words.frame = CGRectMake(0.0, 0.0, self.frame.size.width, 35.0);
         [self addSubview:words];

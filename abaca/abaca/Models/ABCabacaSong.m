@@ -13,7 +13,7 @@
 }
 
 
-
+-(void)loadMP3;
 -(void)setupSession;
 -(void)specifyAudioUnits;
 -(void)createGraph;
@@ -32,7 +32,7 @@ OSStatus speedCallback(void *inRefCon,AudioUnitRenderActionFlags *ioActionFlags,
 -(id)init{
     self = [super init];
     if (self) {
-        
+        [self loadMP3];
         [self setupSession];
         [self specifyAudioUnits];
         [self createGraph];
@@ -44,7 +44,33 @@ OSStatus speedCallback(void *inRefCon,AudioUnitRenderActionFlags *ioActionFlags,
 
 
 
+-(void)loadMP3{
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/a_apple_mix_2_FINAL.mp3", [[NSBundle mainBundle] resourcePath]]];
+    AudioFileID inAudioFile = NULL;
+    
+    
+    OSStatus status;
+    //OSStatus close_status;
+    
+#ifndef TARGET_OS_IPHONE
+	// This constant is missing under Mac OS X
+# define kAudioFileReadPermission fsRdPerm
+#endif
+	
+#define BUFFER_SIZE 4096
+	//char *buffer = NULL;
+    
+    status = AudioFileOpenURL((CFURLRef)url, kAudioFileReadPermission, 0, &inAudioFile);
+    if (status)
+	{
+		//goto reterr;
+	}
+    
+    
+    
+    
 
+}
 
 
 -(void)setupSession{
