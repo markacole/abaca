@@ -350,7 +350,7 @@
         
         [self hideHand];
         readingState = ReadingStateEndWord;
-        [self startGapTimerWithInterval:3.0];
+        [self startGapTimerWithInterval:0.1];
         
         
     }else if (readingState == ReadingStateEndWord){
@@ -387,14 +387,6 @@
         
     }else if (readingState == ReadingStateShowingImage){
         
-        
-        /*self.sentenceIndex++;
-        if (self.sentenceIndex < 5) {
-            [self startWordsWithIndex:self.sentenceIndex];
-        }else{
-            self.sentenceIndex = 0;
-            readingState = ReadingStateNone;
-        }*/
         readingState = ReadingStateNone;
         
     }else if (readingState == ReadingStatePlayingWordByUserTouch){
@@ -514,7 +506,7 @@
         UITouch *touch = [touches anyObject];
         CGPoint locationInView = [touch locationInView:words];
         
-        if (locationInView.y <= words.frame.size.height) {
+        if (locationInView.y <= words.frame.size.height*3.0) {
             printf("touch at sentence %i\n",sentenceIndex);
             readingState = ReadingStatePlayingWordByUserTouch;
             [self playsoundForCurrentSentenceForWordAtPosition:locationInView.x];

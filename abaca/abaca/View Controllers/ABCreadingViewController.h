@@ -14,6 +14,11 @@
     ABCReadingImageView *mainImageView;
     ABCReadingWordsView *wordsView;
     
+    CGRect catRect;
+    CGPoint catCenter;
 }
+
+
+@property (nonatomic,retain) UIImageView *firstBtn;
 
 @end

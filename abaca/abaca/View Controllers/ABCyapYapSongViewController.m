@@ -268,6 +268,42 @@
     self.player.currentTime = 0.0;
     [pauseBtn setImage:[UIImage imageNamed:@"PlayButton.png"] forState:UIControlStateNormal];
     [pauseBtn setImage:[UIImage imageNamed:@"PlayButton_Highlighted.png"] forState:UIControlStateHighlighted];
+    
+    //show first verse, first line and hand pointing to first word:
+    NSArray *verses = (NSArray *)[pointerList objectForKey:@"Verses"];
+    NSDictionary *verse = (NSDictionary *)[verses objectAtIndex:0];
+    NSArray *lines = (NSArray *)[verse objectForKey:@"Lines"];
+    NSDictionary *line = (NSDictionary *)[lines objectAtIndex:0];
+    NSArray *words = (NSArray *)[line objectForKey:@"Words"];
+    NSDictionary *word = (NSDictionary *)[words objectAtIndex:0];
+    float wordX = [[word objectForKey:@"Pos"] floatValue];
+    line1.image = [UIImage imageNamed:[NSString stringWithFormat:@"v%i_l1.png",1]];
+    float handY = line1.frame.origin.y+line1.frame.size.height;
+    if (!isiPad){
+        wordX = wordX*scale;
+    }
+    
+    
+    float handX = wordX-(hand.frame.size.width/2.0);
+    
+    CGRect handRect = hand.frame;
+    handRect.origin.x = handX;
+    handRect.origin.y = handY;
+    
+    hand.frame = handRect;
+    
+    line1.alpha = 0.0;
+    line2.alpha = 0.0;
+    line3.alpha = 0.0;
+    line2.image = nil;
+    line3.image = nil;
+    
+    [UIView animateWithDuration:0.2 animations:^(void){
+        line1.alpha = 1.0;
+        hand.alpha = 1.0;
+    } completion:^(BOOL finished){
+        //currentWord++;
+    }];
 }
 
 

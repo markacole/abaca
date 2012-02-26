@@ -19,5 +19,6 @@
 
 -(void)showImageAtIndex:(NSInteger)index;
 -(void)hideImage;
+-(void)playSound;
 
 @end

@@ -66,10 +66,6 @@ OSStatus speedCallback(void *inRefCon,AudioUnitRenderActionFlags *ioActionFlags,
 		//goto reterr;
 	}
     
-    
-    
-    
-
 }
 
 

@@ -24,9 +24,14 @@
     
     NSArray *alphabet;
     NSArray *times;
+    NSArray *speeds;
+    NSInteger speedIndex;
     
     UIButton *speedControlMinus;
     UIButton *speedControlPlus;
+    
+    UIImageView *speedControlMinusImg;
+    UIImageView *speedControlPlusImg;
     
     BOOL musicEnded;
 }

@@ -40,11 +40,15 @@
     self.view = vw;
     [vw release];
     
-    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainBGGradient.png"]];
+    
+    self.view.exclusiveTouch = YES;
+    self.view.backgroundColor = [UIColor colorWithRed:1.0 green:150.0/255.0 blue:26.0/255.0 alpha:1.0];
+    
+    /*UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainBGGradient.png"]];
     [self.view addSubview:bg];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)bg.frame = CGRectMake(0.0, 0.0, 480.0, 320.0);
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)bg.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
-    [bg release];
+    [bg release];*/
     
     
     NSArray *btnTitles = [[NSArray alloc] initWithObjects:
@@ -71,6 +75,7 @@
     
     for (int i=0; i<[btnTitles count]; i++){
         ABCHomeScreenButtonView *btn = [[ABCHomeScreenButtonView alloc] initWithFrame:CGRectMake(btnX, i*(btnH+gapH)+btnY, btnW, btnH)];
+        btn.exclusiveTouch = YES;
         btn.tag = i;
         btn.delegate = self;
         NSString *textImageName = [NSString stringWithFormat:@"HomeScreenBtnText_%i.png",i];
@@ -104,7 +109,7 @@
 	NSError *error = nil;
 	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
 	audioPlayer.numberOfLoops = -1;
-    audioPlayer.volume = 0.05;
+    audioPlayer.volume = 0.2;
     [audioPlayer prepareToPlay];
 }
 
@@ -170,7 +175,7 @@
         [muteButton setImage:[UIImage imageNamed:@"MuteButton.png"] forState:UIControlStateNormal];
         [muteButton setImage:[UIImage imageNamed:@"MuteButton_Highlighted.png"] forState:UIControlStateHighlighted];
     }else{
-        audioPlayer.volume = 0.05;
+        audioPlayer.volume = 0.2;
         [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted.png"] forState:UIControlStateNormal];
         [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted_Highlighted.png"] forState:UIControlStateHighlighted];
     }

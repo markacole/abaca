@@ -53,31 +53,31 @@
         
         times = [[NSArray alloc] initWithObjects:
                  [NSNumber numberWithFloat:0.0],//a
-                 [NSNumber numberWithFloat:7.5],//b
-                 [NSNumber numberWithFloat:11.0],//c
-                 [NSNumber numberWithFloat:15.0],//d
-                 [NSNumber numberWithFloat:22.0],//e
-                 [NSNumber numberWithFloat:25.5],//f
-                 [NSNumber numberWithFloat:28.5],//g
-                 [NSNumber numberWithFloat:32.5],//h
-                 [NSNumber numberWithFloat:39.5],//i
-                 [NSNumber numberWithFloat:43.0],//j
-                 [NSNumber numberWithFloat:46.5],//k
-                 [NSNumber numberWithFloat:50.3],//l
-                 [NSNumber numberWithFloat:57.5],//m
-                 [NSNumber numberWithFloat:61.0],//n
-                 [NSNumber numberWithFloat:64.5],//o
-                 [NSNumber numberWithFloat:68.0],//p
-                 [NSNumber numberWithFloat:75.0],//q
-                 [NSNumber numberWithFloat:78.8],//r
-                 [NSNumber numberWithFloat:82.0],//s
-                 [NSNumber numberWithFloat:85.5],//t
-                 [NSNumber numberWithFloat:93.0],//u
-                 [NSNumber numberWithFloat:96.5],//v
-                 [NSNumber numberWithFloat:100.0],//w
-                 [NSNumber numberWithFloat:103.5],//x
-                 [NSNumber numberWithFloat:110.5],//y
-                 [NSNumber numberWithFloat:114.0],//z
+                 [NSNumber numberWithFloat:8.558],//b
+                 [NSNumber numberWithFloat:12.125],//c
+                 [NSNumber numberWithFloat:15.717],//d
+                 [NSNumber numberWithFloat:22.775],//e
+                 [NSNumber numberWithFloat:26.342],//f
+                 [NSNumber numberWithFloat:29.892],//g
+                 [NSNumber numberWithFloat:33.458],//h
+                 [NSNumber numberWithFloat:40.575],//i
+                 [NSNumber numberWithFloat:44.125],//j
+                 [NSNumber numberWithFloat:47.675],//k
+                 [NSNumber numberWithFloat:51.242],//l
+                 [NSNumber numberWithFloat:58.333],//m
+                 [NSNumber numberWithFloat:61.9],//n
+                 [NSNumber numberWithFloat:65.458],//o
+                 [NSNumber numberWithFloat:69.017],//p
+                 [NSNumber numberWithFloat:76.125],//q
+                 [NSNumber numberWithFloat:79.675],//r
+                 [NSNumber numberWithFloat:83.192],//s
+                 [NSNumber numberWithFloat:86.8],//t
+                 [NSNumber numberWithFloat:93.908],//u
+                 [NSNumber numberWithFloat:97.425],//v
+                 [NSNumber numberWithFloat:100.933],//w
+                 [NSNumber numberWithFloat:104.542 ],//x
+                 [NSNumber numberWithFloat:111.450],//y
+                 [NSNumber numberWithFloat:115.108],//z
                  nil];
         
         alphabet = [[NSArray alloc] initWithObjects:
@@ -108,6 +108,16 @@
                     @"y",
                     @"z",
                     nil];
+        
+        speeds = [[NSArray alloc] initWithObjects:
+                  [NSNumber numberWithFloat:(1.0/1.5/1.5)],
+                  [NSNumber numberWithFloat:(1.0/1.5)],
+                  [NSNumber numberWithFloat:1.0],
+                  [NSNumber numberWithFloat:(1.0*1.5)],
+                  [NSNumber numberWithFloat:(1.0*1.5*1.5)],
+                  nil];
+        
+        speedIndex = 2;
     }
     return self;
 }
@@ -144,14 +154,27 @@
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)songViewContainer.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
     [self.view insertSubview:songViewContainer atIndex:1];
     
-    speedControlMinus = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    speedControlPlus = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    speedControlMinus.frame = CGRectMake(900.0, 700.0, 44.0, 44.0);
-    speedControlPlus.frame = CGRectMake(950.0, 700.0, 44.0, 44.0);
+    
+    speedControlMinus = [UIButton buttonWithType:UIButtonTypeCustom];
+    speedControlPlus = [UIButton buttonWithType:UIButtonTypeCustom];
+    speedControlMinus.showsTouchWhenHighlighted = YES;
+    speedControlPlus.showsTouchWhenHighlighted = YES;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlMinus.frame = CGRectMake(180.0, 270.0, 44.0, 44.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlMinus.frame = CGRectMake(400.0, 660.0, 88.0, 88.0);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlPlus.frame = CGRectMake(256.0, 270.0, 44.0, 44.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlPlus.frame = CGRectMake(536.0, 660.0, 88.0, 88.0);
     [speedControlMinus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [speedControlPlus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:speedControlMinus];
     [self.view addSubview:speedControlPlus];
+    
+    
+    speedControlMinusImg = [[UIImageView alloc] initWithFrame:speedControlMinus.frame];
+    speedControlPlusImg = [[UIImageView alloc] initWithFrame:speedControlPlus.frame];
+    [self.view insertSubview:speedControlMinusImg belowSubview:speedControlMinus];
+    [self.view insertSubview:speedControlPlusImg belowSubview:speedControlPlus];
+    speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft@2x.png"];
+    speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight@2x.png"];
 }
 
 
@@ -202,6 +225,8 @@
         [pauseBtn setImage:[UIImage imageNamed:@"PlayButton_Highlighted.png"] forState:UIControlStateHighlighted];
         [self endTimer];
     }else{
+        float speed = [[speeds objectAtIndex:speedIndex] floatValue];
+        audioPlayer.rate = speed;
         [audioPlayer play];
         [pauseBtn setImage:[UIImage imageNamed:@"PauseButton.png"] forState:UIControlStateNormal];
         [pauseBtn setImage:[UIImage imageNamed:@"PauseButton_Highlighted.png"] forState:UIControlStateHighlighted];
@@ -214,13 +239,45 @@
 -(void)changeSpeed:(id)sender{
     UIButton *btn = (UIButton *)sender;
     if (btn == speedControlMinus){
-        if (audioPlayer.rate > 0.5){
-            audioPlayer.rate = audioPlayer.rate / 1.5;
+        if (speedIndex != 0) {
+            speedIndex--;
         }
     }else if (btn == speedControlPlus){
-        if (audioPlayer.rate < 2.0){
-            audioPlayer.rate = audioPlayer.rate * 1.5;
+        if (speedIndex != [speeds count]-1) {
+            speedIndex++;
         }
+    }
+    float speed = [[speeds objectAtIndex:speedIndex] floatValue];
+    audioPlayer.rate = speed;
+    
+    switch (speedIndex) {
+        case 0:{
+            speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft3@2x.png"];
+            speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight@2x.png"];
+            break;
+        }
+        case 1:{
+            speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft2@2x.png"];
+            speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight@2x.png"];
+            break;
+        }
+        case 2:{
+            speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft@2x.png"];
+            speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight@2x.png"];
+            break;
+        }
+        case 3:{
+            speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft@2x.png"];
+            speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight2@2x.png"];
+            break;
+        }
+        case 4:{
+            speedControlMinusImg.image = [UIImage imageNamed:@"chevronsLeft@2x.png"];
+            speedControlPlusImg.image = [UIImage imageNamed:@"chevronsRight3@2x.png"];
+            break;
+        }
+        default:
+            break;
     }
 }
 
@@ -303,7 +360,7 @@
 -(void)checkProgress{
     float current = audioPlayer.currentTime;
     if (currentPage < [times count]) {
-        if (current >= [[times objectAtIndex:currentPage] floatValue]){
+        if (current >= [[times objectAtIndex:currentPage] floatValue]-0.8){
             [self showNext];
         }
     }
@@ -321,6 +378,11 @@
 
 
 -(void)dealloc{
+    [times release];
+    [alphabet release];
+    [speeds release];
+    [speedControlMinusImg release];
+    [speedControlPlusImg release];
     [songViewContainer  release];
     [audioPlayer release];
     self.previous = nil;

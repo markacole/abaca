@@ -44,6 +44,7 @@
     imgVw.alpha = 0.0;
     [UIView animateWithDuration:0.3 animations:^(void){
         imgVw.alpha = 1.0;
+        [self playSound];
     }];
 }
 
@@ -109,6 +110,38 @@
         
     }
     printf("\n");
+}
+
+-(void)playSound{
+    switch (currentImageIndex) {
+        case 0:{
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_0_a.wav", [[NSBundle mainBundle] resourcePath]];
+            [self playSoundAtURLString:url];
+            break;
+        }
+        case 1:{
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_1.wav", [[NSBundle mainBundle] resourcePath]];
+            [self playSoundAtURLString:url];
+            break;
+        }
+        case 2:{
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_2.mp3", [[NSBundle mainBundle] resourcePath]];
+            [self playSoundAtURLString:url];
+            break;
+        }
+        case 3:{
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_3.mp3", [[NSBundle mainBundle] resourcePath]];
+            [self playSoundAtURLString:url];
+            break;
+        }
+        case 4:{
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_4.wav", [[NSBundle mainBundle] resourcePath]];
+            [self playSoundAtURLString:url];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 

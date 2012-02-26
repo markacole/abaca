@@ -7,8 +7,20 @@
 //
 
 #import "ABCreadingViewController.h"
+@interface ABCreadingViewController (hidden)
+
+-(void)beginCatAnimation;
+-(void)endCatAnimation;
+
+@end
+
 
 @implementation ABCreadingViewController
+
+
+@synthesize firstBtn;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +54,7 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         NSString *imgName = [NSString stringWithFormat:@"readBtn_%i.png",i];
         UIImage *btnImg = [UIImage imageNamed:imgName];
-        [btn setImage:btnImg forState:UIControlStateNormal];
+        
         [btn addTarget:self action:@selector(animalButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 100+i;
         CGSize imgSize = btnImg.size;
@@ -56,8 +68,24 @@
         btn.frame = CGRectMake(10.0, startY, imgSize.width, imgSize.height);
         startY += imgSize.height;
         
-        
         [self.view addSubview:btn];
+        
+        if (i==0){
+            
+            catRect = btn.frame;
+            catCenter = btn.center;
+            
+            
+            UIImageView *catImg = [[UIImageView alloc] initWithImage:btnImg];
+            catImg.tag = 1000;
+            catImg.frame = btn.frame;
+            [self.view insertSubview:catImg belowSubview:btn];
+            [catImg release];
+        }else{
+            [btn setImage:btnImg forState:UIControlStateNormal];
+        }
+        
+        
     }
     
     
@@ -70,6 +98,9 @@
     else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) wordsView = [[ABCReadingWordsView alloc] initWithFrame:CGRectMake(230.0, 500.0, 740.0, 200.0)];
     [self.view addSubview:wordsView];
     wordsView.delegate = self;
+    
+    
+    [self beginCatAnimation];
 }
 
 
@@ -97,7 +128,43 @@
 
 
 
+-(void)beginCatAnimation{
+    UIButton *btn = (UIButton *)[self.view viewWithTag:100];
+    CGRect expandToRect = CGRectMake(0.0, 0.0, floorf(catRect.size.width*1.2), floorf(catRect.size.height*1.2));
+    expandToRect.origin.x = floorf((btn.frame.size.width-expandToRect.size.width)/2.0+btn.frame.origin.x);
+    expandToRect.origin.y = floorf((btn.frame.size.height-expandToRect.size.height)/2.0+btn.frame.origin.y);
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:1000];
+    [UIView animateWithDuration:0.8 
+                          delay:0.3 
+                        options:UIViewAnimationOptionRepeat|UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAutoreverse 
+                     animations:^(void){
+                         img.frame = expandToRect;
+                     } 
+                     completion:^(BOOL finished){
+                         
+                     }];
+}
+
+-(void)endCatAnimation{
+    UIButton *btn = (UIButton *)[self.view viewWithTag:100];
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:1000];
+    if (img) {
+        [UIView animateWithDuration:0.3 animations:^(void){
+            img.frame = btn.frame;
+        }
+                         completion:^(BOOL finished){
+                             [btn setImage:img.image forState:UIControlStateNormal];
+                             [img removeFromSuperview];
+                             
+                         }];
+    }
+    
+}
+
+
+
 -(void)animalButtonPressed:(id)sender{
+    [self endCatAnimation];
     UIButton *btn = (UIButton *)sender;
     [wordsView startWordsWithIndex:btn.tag-100];
 }
@@ -122,6 +189,7 @@
 }
 
 -(void)dealloc{
+    self.firstBtn = nil;
     [mainImageView release];
     [wordsView release];
     [super dealloc];

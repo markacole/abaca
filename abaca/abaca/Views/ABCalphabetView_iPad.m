@@ -52,7 +52,8 @@
         
         for (int i=0; i<[alphabet count]; i++) {
             if ([[alphabet objectAtIndex:i] isEqualToString:@"a"] ||
-                [[alphabet objectAtIndex:i] isEqualToString:@"e"] ) {
+                [[alphabet objectAtIndex:i] isEqualToString:@"e"] ||
+                [[alphabet objectAtIndex:i] isEqualToString:@"w"]) {
                 colCount++;
                 if (colCount > 5) {
                     colCount = 0;

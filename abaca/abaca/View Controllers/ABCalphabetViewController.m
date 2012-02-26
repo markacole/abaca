@@ -189,6 +189,15 @@
             [self.alphabetView.currentButton reset];
         }
         [self startFindMode];
+    }else{
+        //repeat question
+        if (![self.player isPlaying]){
+            playedFind = NO;
+            playedFindLetter = NO;
+            playedFindFanfare = NO;
+            findGuessCount = 0;
+            [self playFindForLetter:self.findLetter];
+        }
     }
     
 }

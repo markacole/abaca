@@ -46,6 +46,7 @@
         
         
         btn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        btn.exclusiveTouch = YES;
         btn.frame = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
         [btn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [btn addTarget:self action:@selector(buttonDown:) forControlEvents:UIControlEventTouchDown];

@@ -28,6 +28,7 @@
         [self addSubview:letterImg];
         
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.button.exclusiveTouch = YES;
         self.button.frame = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
         [self.button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:self.button];

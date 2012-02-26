@@ -38,6 +38,8 @@
     self.view = vw;
     [vw release];
     
+    self.view.multipleTouchEnabled = NO;
+    
     UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainBGGradient.png"]];
     [self.view addSubview:bg];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)bg.frame = CGRectMake(0.0, 0.0, 480.0, 320.0);
