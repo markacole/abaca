@@ -159,10 +159,10 @@
     speedControlPlus = [UIButton buttonWithType:UIButtonTypeCustom];
     speedControlMinus.showsTouchWhenHighlighted = YES;
     speedControlPlus.showsTouchWhenHighlighted = YES;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlMinus.frame = CGRectMake(180.0, 270.0, 44.0, 44.0);
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlMinus.frame = CGRectMake(400.0, 660.0, 88.0, 88.0);
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlPlus.frame = CGRectMake(256.0, 270.0, 44.0, 44.0);
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlPlus.frame = CGRectMake(536.0, 660.0, 88.0, 88.0);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlMinus.frame = CGRectMake(350.0, 270.0, 44.0, 44.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlMinus.frame = CGRectMake(800.0, 660.0, 88.0, 88.0);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) speedControlPlus.frame = CGRectMake(408.0, 270.0, 44.0, 44.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) speedControlPlus.frame = CGRectMake(916.0, 660.0, 88.0, 88.0);
     [speedControlMinus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [speedControlPlus addTarget:self action:@selector(changeSpeed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:speedControlMinus];

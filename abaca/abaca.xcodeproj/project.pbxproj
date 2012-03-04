@@ -175,7 +175,6 @@
 		93794A5014DBF3A900ADD32D /* sounds_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93794A4A14DBF3A900ADD32D /* sounds_1.wav */; };
 		93794A5114DBF3A900ADD32D /* sounds_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93794A4B14DBF3A900ADD32D /* sounds_2.mp3 */; };
 		93794A5214DBF3A900ADD32D /* sounds_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93794A4C14DBF3A900ADD32D /* sounds_3.mp3 */; };
-		93794A5314DBF3A900ADD32D /* sounds_4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93794A4D14DBF3A900ADD32D /* sounds_4.wav */; };
 		93794A5614DBFF1C00ADD32D /* yap_yap_with_woof mark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93794A5514DBFF1C00ADD32D /* yap_yap_with_woof mark.mp3 */; };
 		93794A6714DC06B700ADD32D /* v1_l1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93794A5814DC06B700ADD32D /* v1_l1.png */; };
 		93794A6814DC06B700ADD32D /* v1_l2.png in Resources */ = {isa = PBXBuildFile; fileRef = 93794A5914DC06B700ADD32D /* v1_l2.png */; };
@@ -228,7 +227,6 @@
 		93794ABC14DC55FA00ADD32D /* find_y.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93794A9A14DC55FA00ADD32D /* find_y.mp3 */; };
 		93794ABD14DC55FA00ADD32D /* find_z.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93794A9B14DC55FA00ADD32D /* find_z.mp3 */; };
 		93794ABF14DC624A00ADD32D /* find_fanfare.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93794ABE14DC624A00ADD32D /* find_fanfare.wav */; };
-		93A5BE8414E6CD3200CB636D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A5BE8314E6CD3200CB636D /* Default-Landscape~ipad.png */; };
 		93A5BE8714E6D2D800CB636D /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A5BE8614E6D2D800CB636D /* Default-Landscape@2x.png */; };
 		93C939F214D5A8C30035EA79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F114D5A8C30035EA79 /* UIKit.framework */; };
 		93C939F414D5A8C30035EA79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C939F314D5A8C30035EA79 /* Foundation.framework */; };
@@ -237,6 +235,17 @@
 		93C939FE14D5A8C30035EA79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C939FD14D5A8C30035EA79 /* main.m */; };
 		93C93A0214D5A8C30035EA79 /* ABCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C93A0114D5A8C30035EA79 /* ABCAppDelegate.m */; };
 		93C93A0F14D5AA370035EA79 /* ABCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C93A0E14D5AA370035EA79 /* ABCRootViewController.m */; };
+		93CF214014FEC96C005D0C26 /* sounds_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93CF213F14FEC96C005D0C26 /* sounds_4.mp3 */; };
+		93CF214614FECB7A005D0C26 /* info_closeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CF214214FECB7A005D0C26 /* info_closeBtn.png */; };
+		93CF214714FECB7A005D0C26 /* info_closeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CF214314FECB7A005D0C26 /* info_closeBtn@2x.png */; };
+		93CF214814FECB7A005D0C26 /* info_rateBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CF214414FECB7A005D0C26 /* info_rateBtn.png */; };
+		93CF214914FECB7A005D0C26 /* info_rateBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CF214514FECB7A005D0C26 /* info_rateBtn@2x.png */; };
+		93CF214B14FECF86005D0C26 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CF214A14FECF86005D0C26 /* Default-Landscape~ipad.png */; };
+		93EC9F5014FAEE6600632049 /* ABCInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EC9F4E14FAEE6600632049 /* ABCInfoViewController.m */; };
+		93EC9F5114FAEE6600632049 /* ABCInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EC9F4F14FAEE6600632049 /* ABCInfoViewController.xib */; };
+		93EC9F5C14FAEFAA00632049 /* ABCInfoViewController-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EC9F5A14FAEFAA00632049 /* ABCInfoViewController-iPhone.m */; };
+		93EC9F5D14FAEFAA00632049 /* ABCInfoViewController-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93EC9F5B14FAEFAA00632049 /* ABCInfoViewController-iPhone.xib */; };
+		93EC9F5F14FAF5F400632049 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EC9F5E14FAF5F400632049 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -423,7 +432,6 @@
 		93794A4A14DBF3A900ADD32D /* sounds_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sounds_1.wav; sourceTree = "<group>"; };
 		93794A4B14DBF3A900ADD32D /* sounds_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sounds_2.mp3; sourceTree = "<group>"; };
 		93794A4C14DBF3A900ADD32D /* sounds_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sounds_3.mp3; sourceTree = "<group>"; };
-		93794A4D14DBF3A900ADD32D /* sounds_4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sounds_4.wav; sourceTree = "<group>"; };
 		93794A5514DBFF1C00ADD32D /* yap_yap_with_woof mark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "yap_yap_with_woof mark.mp3"; sourceTree = "<group>"; };
 		93794A5814DC06B700ADD32D /* v1_l1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v1_l1.png; sourceTree = "<group>"; };
 		93794A5914DC06B700ADD32D /* v1_l2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v1_l2.png; sourceTree = "<group>"; };
@@ -476,7 +484,6 @@
 		93794A9A14DC55FA00ADD32D /* find_y.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_y.mp3; sourceTree = "<group>"; };
 		93794A9B14DC55FA00ADD32D /* find_z.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = find_z.mp3; sourceTree = "<group>"; };
 		93794ABE14DC624A00ADD32D /* find_fanfare.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = find_fanfare.wav; sourceTree = "<group>"; };
-		93A5BE8314E6CD3200CB636D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		93A5BE8614E6D2D800CB636D /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		93C939ED14D5A8C20035EA79 /* abaca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abaca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C939F114D5A8C30035EA79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -490,6 +497,19 @@
 		93C93A0114D5A8C30035EA79 /* ABCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABCAppDelegate.m; sourceTree = "<group>"; };
 		93C93A0D14D5AA370035EA79 /* ABCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCRootViewController.h; sourceTree = "<group>"; };
 		93C93A0E14D5AA370035EA79 /* ABCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCRootViewController.m; sourceTree = "<group>"; };
+		93CF213F14FEC96C005D0C26 /* sounds_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sounds_4.mp3; sourceTree = "<group>"; };
+		93CF214214FECB7A005D0C26 /* info_closeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_closeBtn.png; sourceTree = "<group>"; };
+		93CF214314FECB7A005D0C26 /* info_closeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_closeBtn@2x.png"; sourceTree = "<group>"; };
+		93CF214414FECB7A005D0C26 /* info_rateBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_rateBtn.png; sourceTree = "<group>"; };
+		93CF214514FECB7A005D0C26 /* info_rateBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_rateBtn@2x.png"; sourceTree = "<group>"; };
+		93CF214A14FECF86005D0C26 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		93EC9F4D14FAEE6600632049 /* ABCInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCInfoViewController.h; sourceTree = "<group>"; };
+		93EC9F4E14FAEE6600632049 /* ABCInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCInfoViewController.m; sourceTree = "<group>"; };
+		93EC9F4F14FAEE6600632049 /* ABCInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABCInfoViewController.xib; sourceTree = "<group>"; };
+		93EC9F5914FAEFAA00632049 /* ABCInfoViewController-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ABCInfoViewController-iPhone.h"; sourceTree = "<group>"; };
+		93EC9F5A14FAEFAA00632049 /* ABCInfoViewController-iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ABCInfoViewController-iPhone.m"; sourceTree = "<group>"; };
+		93EC9F5B14FAEFAA00632049 /* ABCInfoViewController-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ABCInfoViewController-iPhone.xib"; sourceTree = "<group>"; };
+		93EC9F5E14FAF5F400632049 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +517,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EC9F5F14FAF5F400632049 /* MessageUI.framework in Frameworks */,
 				93690ECF14D6FECA00ED6277 /* AudioToolbox.framework in Frameworks */,
 				93690ECD14D6FDBB00ED6277 /* AVFoundation.framework in Frameworks */,
 				93C939F214D5A8C30035EA79 /* UIKit.framework in Frameworks */,
@@ -610,7 +631,7 @@
 				93794A4A14DBF3A900ADD32D /* sounds_1.wav */,
 				93794A4B14DBF3A900ADD32D /* sounds_2.mp3 */,
 				93794A4C14DBF3A900ADD32D /* sounds_3.mp3 */,
-				93794A4D14DBF3A900ADD32D /* sounds_4.wav */,
+				93CF213F14FEC96C005D0C26 /* sounds_4.mp3 */,
 				9310D66214DAC07B008ED1FB /* wordsSpoken_0_0.mp3 */,
 				9310D66314DAC07B008ED1FB /* wordsSpoken_0_1.mp3 */,
 				9310D66414DAC07B008ED1FB /* wordsSpoken_0_2.mp3 */,
@@ -758,8 +779,9 @@
 		93C939E214D5A8C20035EA79 = {
 			isa = PBXGroup;
 			children = (
+				93CF214A14FECF86005D0C26 /* Default-Landscape~ipad.png */,
+				93EC9F5E14FAF5F400632049 /* MessageUI.framework */,
 				93A5BE8614E6D2D800CB636D /* Default-Landscape@2x.png */,
-				93A5BE8314E6CD3200CB636D /* Default-Landscape~ipad.png */,
 				93690ECE14D6FEC900ED6277 /* AudioToolbox.framework */,
 				93690ECC14D6FDBB00ED6277 /* AVFoundation.framework */,
 				93690E9114D69BD800ED6277 /* Default@2x.png */,
@@ -852,6 +874,12 @@
 				93690EB514D6C1BE00ED6277 /* ABCreadingViewController.m */,
 				93690EB714D6C1DD00ED6277 /* ABCyapYapSongViewController.h */,
 				93690EB814D6C1DD00ED6277 /* ABCyapYapSongViewController.m */,
+				93EC9F4D14FAEE6600632049 /* ABCInfoViewController.h */,
+				93EC9F4E14FAEE6600632049 /* ABCInfoViewController.m */,
+				93EC9F4F14FAEE6600632049 /* ABCInfoViewController.xib */,
+				93EC9F5914FAEFAA00632049 /* ABCInfoViewController-iPhone.h */,
+				93EC9F5A14FAEFAA00632049 /* ABCInfoViewController-iPhone.m */,
+				93EC9F5B14FAEFAA00632049 /* ABCInfoViewController-iPhone.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -882,6 +910,10 @@
 		93C93A0C14D5A9740035EA79 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				93CF214214FECB7A005D0C26 /* info_closeBtn.png */,
+				93CF214314FECB7A005D0C26 /* info_closeBtn@2x.png */,
+				93CF214414FECB7A005D0C26 /* info_rateBtn.png */,
+				93CF214514FECB7A005D0C26 /* info_rateBtn@2x.png */,
 				93697D8714F57F6E0055611D /* chevronsLeft@2x.png */,
 				93697D8814F57F6E0055611D /* chevronsLeft2@2x.png */,
 				93697D8914F57F6E0055611D /* chevronsLeft3@2x.png */,
@@ -1121,7 +1153,6 @@
 				93794A5014DBF3A900ADD32D /* sounds_1.wav in Resources */,
 				93794A5114DBF3A900ADD32D /* sounds_2.mp3 in Resources */,
 				93794A5214DBF3A900ADD32D /* sounds_3.mp3 in Resources */,
-				93794A5314DBF3A900ADD32D /* sounds_4.wav in Resources */,
 				93794A5614DBFF1C00ADD32D /* yap_yap_with_woof mark.mp3 in Resources */,
 				93794A6714DC06B700ADD32D /* v1_l1.png in Resources */,
 				93794A6814DC06B700ADD32D /* v1_l2.png in Resources */,
@@ -1174,7 +1205,6 @@
 				93794ABC14DC55FA00ADD32D /* find_y.mp3 in Resources */,
 				93794ABD14DC55FA00ADD32D /* find_z.mp3 in Resources */,
 				93794ABF14DC624A00ADD32D /* find_fanfare.wav in Resources */,
-				93A5BE8414E6CD3200CB636D /* Default-Landscape~ipad.png in Resources */,
 				93A5BE8714E6D2D800CB636D /* Default-Landscape@2x.png in Resources */,
 				93697D8D14F57F6E0055611D /* chevronsLeft@2x.png in Resources */,
 				93697D8E14F57F6E0055611D /* chevronsLeft2@2x.png in Resources */,
@@ -1182,6 +1212,14 @@
 				93697D9014F57F6E0055611D /* chevronsRight@2x.png in Resources */,
 				93697D9114F57F6E0055611D /* chevronsRight2@2x.png in Resources */,
 				93697D9214F57F6E0055611D /* chevronsRight3@2x.png in Resources */,
+				93EC9F5114FAEE6600632049 /* ABCInfoViewController.xib in Resources */,
+				93EC9F5D14FAEFAA00632049 /* ABCInfoViewController-iPhone.xib in Resources */,
+				93CF214014FEC96C005D0C26 /* sounds_4.mp3 in Resources */,
+				93CF214614FECB7A005D0C26 /* info_closeBtn.png in Resources */,
+				93CF214714FECB7A005D0C26 /* info_closeBtn@2x.png in Resources */,
+				93CF214814FECB7A005D0C26 /* info_rateBtn.png in Resources */,
+				93CF214914FECB7A005D0C26 /* info_rateBtn@2x.png in Resources */,
+				93CF214B14FECF86005D0C26 /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,6 +1248,8 @@
 				9310D63A14D9B0D7008ED1FB /* NSArray+Helpers.m in Sources */,
 				9310D64814DAA48A008ED1FB /* ABCReadingImageView.m in Sources */,
 				9310D64B14DAA4A9008ED1FB /* ABCReadingWordsView.m in Sources */,
+				93EC9F5014FAEE6600632049 /* ABCInfoViewController.m in Sources */,
+				93EC9F5C14FAEFAA00632049 /* ABCInfoViewController-iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,7 +1287,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BFD01F3-08C2-4F49-958A-998E7BB55A6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B76C8D1-F3A0-4437-BDC3-CF79070D2978";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1267,7 +1307,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7EECF1F9-F6D0-4AF4-BC82-1D101899171E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C74430A9-127E-46C9-8B5D-E2A5850432B0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

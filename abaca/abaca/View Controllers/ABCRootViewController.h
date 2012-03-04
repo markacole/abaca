@@ -12,6 +12,7 @@
 @interface ABCRootViewController : UIViewController <ABCHomeScreenButtonViewDelegate>{
     AVAudioPlayer *audioPlayer;
     UIButton *muteButton;
+    
 }
 
 @end

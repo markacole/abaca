@@ -11,6 +11,7 @@
 #import "ABCalphabetViewController.h"
 #import "ABCreadingViewController.h"
 #import "ABCyapYapSongViewController.h"
+#import "ABCInfoViewController-iPhone.h"
 
 @implementation ABCRootViewController
 
@@ -104,6 +105,14 @@
     [self.view addSubview:muteButton];
     
     
+    UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    infoBtn.showsTouchWhenHighlighted = YES;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)infoBtn.frame = CGRectMake(416.0, 0.0, 54.0, 54.0);
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)infoBtn.frame = CGRectMake(906.0, 0.0, 108.0, 108.0);
+    [infoBtn addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:infoBtn];
+    
+    
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/a_apple_mix_2_FINAL.mp3", [[NSBundle mainBundle] resourcePath]]];
     
 	NSError *error = nil;
@@ -180,6 +189,19 @@
         [muteButton setImage:[UIImage imageNamed:@"MuteButton_Muted_Highlighted.png"] forState:UIControlStateHighlighted];
     }
 }
+
+
+-(void)infoButtonPressed:(id)sender{
+    ABCInfoViewController *info = nil;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)info = [[ABCInfoViewController alloc] initWithNibName:@"ABCInfoViewController" bundle:[NSBundle mainBundle]];
+    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)  info = [[ABCInfoViewController_iPhone alloc] initWithNibName:@"ABCInfoViewController-iPhone" bundle:[NSBundle mainBundle]];
+    
+    [audioPlayer pause];
+    
+    [self presentModalViewController:info animated:YES];
+    [info release];
+}
+
 
 -(void)dealloc{
     [audioPlayer release];

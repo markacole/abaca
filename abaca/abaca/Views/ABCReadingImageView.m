@@ -99,7 +99,7 @@
                 break;
             }
             case 4:{
-                NSString *url = [NSString stringWithFormat:@"%@/sounds_4.wav", [[NSBundle mainBundle] resourcePath]];
+                NSString *url = [NSString stringWithFormat:@"%@/sounds_4.mp3", [[NSBundle mainBundle] resourcePath]];
                 [self playSoundAtURLString:url];
                 break;
             }
@@ -135,7 +135,7 @@
             break;
         }
         case 4:{
-            NSString *url = [NSString stringWithFormat:@"%@/sounds_4.wav", [[NSBundle mainBundle] resourcePath]];
+            NSString *url = [NSString stringWithFormat:@"%@/sounds_4.mp3", [[NSBundle mainBundle] resourcePath]];
             [self playSoundAtURLString:url];
             break;
         }

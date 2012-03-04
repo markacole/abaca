@@ -425,9 +425,7 @@
 -(void)stopSound{
     [self.alphabetView enableAlphaButtons];
     if (self.player) {
-        if (self.player.isPlaying) {
-            [self.player stop];
-        }
+        [self.player stop];
         self.player = nil;
     }
 }
@@ -486,6 +484,7 @@
 
 
 -(void)dealloc{
+    if (self.player)[self.player stop];
     self.player = nil;
     self.alphabetView = nil;
     self.playModeLettersOrder = nil;
